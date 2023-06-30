@@ -3,10 +3,10 @@ version: '3.1'
 services:
 
   app:
+    image: olgapj/devops-for-programmers-project-74
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
     command: npm test
     volumes:
       - "./app:/app"
-
