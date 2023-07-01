@@ -1,5 +1,7 @@
-version: '3.1'
+version: '3'
+
 services:
+  
   app:
     build:
       context: .
@@ -8,5 +10,18 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - "./app:/app"
+      - ./app:/app
+
+  caddy:
+    image: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - app
+
 
