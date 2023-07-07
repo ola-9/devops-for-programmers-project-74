@@ -16,4 +16,7 @@ compose-install:
 ci:
 	docker-compose -f docker-compose.yml up
 
+prepare-env:
+	cp -n .env.example .env
+
 
