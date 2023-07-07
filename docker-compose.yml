@@ -8,8 +8,6 @@ services:
       context: .
       dockerfile: Dockerfile.production
     command: npm test
-    env_file:
-      - .env
     environment:
       DATABASE_HOST: ${DATABASE_HOST}
       DATABASE_PORT: ${DATABASE_PORT}
