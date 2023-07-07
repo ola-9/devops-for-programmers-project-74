@@ -7,11 +7,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    command: 
-      - make prepare-env
-      - npm test
-    env_file:
-      - .env
+    command: npm test
+    environment:
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     depends_on:
       - db
 
